@@ -1,2 +1,20 @@
 # GuardianX
-So GuardianX is an IoT-based smart safety wearable powered by ESP32, Firebase Realtime Database, GPS, and SIM900A GSM technology. It enables one-touch SOS alerts, emergency SMS notifications to four trusted contacts, real-time location sharing, and vibration-based acknowledgements for enhanced personal safety.
+
+```
+guardianx/
+  index.html            the website (open via localhost, see step 6)
+  styles.css            design
+  app.js                map, ESP32 link, SOS alert, contacts, Firebase logic
+  firebase-config.js    <- paste your Firebase web config here
+  database/guardianx-database.json   import into Realtime Database
+  database/database.rules.json       paste into the Rules tab
+  esp32/guardianx_contacts/          Arduino sketch (config.h = Wi-Fi + Firebase URL)
+```
+
+## Setup
+1. Firebase console: create a project, then Realtime Database -> menu -> Import JSON -> `database/guardianx-database.json`.
+2. Realtime Database -> Rules -> paste `database/database.rules.json` -> Publish.
+3. Authentication -> Sign-in method -> enable **Anonymous**.
+4. Project settings -> Your apps -> Web (</>) -> copy the config -> paste into `firebase-config.js`.
+5. Open `esp32/guardianx_contacts/config.h`, set Wi-Fi and the same database URL, then upload the sketch.
+6. In this folder run `python -m http.server 8000` and open http://localhost:8000

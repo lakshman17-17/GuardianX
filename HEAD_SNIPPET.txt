@@ -1,0 +1,5 @@
+Paste these lines inside <head> in index.html:
+
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#101827">
+<link rel="apple-touch-icon" href="/icon-192.png">
